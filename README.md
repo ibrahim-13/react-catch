@@ -2,7 +2,7 @@
 
 > React component for wrapping Error Boundary
 
-[![NPM](https://img.shields.io/npm/v/react-catcher.svg)](https://www.npmjs.com/package/react-catch) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/react-catcher.svg)](https://www.npmjs.com/package/react-catcher) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Description
 
