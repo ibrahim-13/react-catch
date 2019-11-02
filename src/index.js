@@ -1,22 +1,40 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 
-import styles from './styles.css'
+export default class ErrorBoundary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
 
-export default class ExampleComponent extends Component {
-  static propTypes = {
-    text: PropTypes.string
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    if (
+        this.props.errorHandler &&
+        typeof this.props.errorHandler === "function"
+      ) {
+      switch (this.props.errorHandler.length) {
+        case 0:
+          this.props.errorHandler();
+          break;
+        case 1:
+          this.props.errorHandler(error);
+          break;
+        case 2:
+          this.props.errorHandler(error, errorInfo);
+          break;
+      }
+    }
   }
 
   render() {
-    const {
-      text
-    } = this.props
+    if (this.state.hasError) {
+      console.log(this.props.fallback);
+      return this.props.fallback ? this.props.fallback : <React.Fragment></React.Fragment>;
+    }
 
-    return (
-      <div className={styles.test}>
-        Example Component: {text}
-      </div>
-    )
+    return this.props.children; 
   }
 }

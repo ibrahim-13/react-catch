@@ -7,6 +7,9 @@ export default class App extends Component {
     return (
       <div>
         <ExampleComponent text='Modern React component module' />
+        {(() => {
+          throw new Error('Throwing Error !');
+        })()}
       </div>
     )
   }
