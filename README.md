@@ -1,12 +1,12 @@
-# react-catch
+# react-catcher
 
 > React component for wrapping Error Boundary
 
-[![NPM](https://img.shields.io/npm/v/react-catch.svg)](https://www.npmjs.com/package/react-catch) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/react-catcher.svg)](https://www.npmjs.com/package/react-catch) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Description
 
-***React Catch*** provides a component wrapper to catch error during render and prevent *White Screen*.
+***React Catcher*** provides a component wrapper to catch error during render and prevent *White Screen*.
 This component provides the following advantages: 
 * Has a default **Fallback** to show if error occured.
 * User preferred **Fallback Component Object** can be passed to the component as `props`.
@@ -15,7 +15,7 @@ This component provides the following advantages:
 ## Install
 
 ```bash
-npm install --save react-catch
+npm install --save react-catcher
 ```
 
 ## Usage (*Wrapping <App /> to catch any error occured*)
@@ -27,15 +27,15 @@ npm install --save react-catch
 ```jsx
 import React, { Component } from 'react'
 
-import ReactCatch from 'react-catch';
+import ReactCatcher from 'react-catch';
 
 ReactDOM.render((
-  <ReactCatch
+  <ReactCatcher
     fallback={<h1>An Error has occured !!</h1>}
     errorHandler={(error, errorInfo) => /** Handle Error Here */}
   >
     <App />
-  </ReactCatch>
+  </ReactCatcher>
   ), document.getElementById('root'))
 ```
 

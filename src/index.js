@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class ErrorBoundary extends Component {
+export default class ReactCatcher extends Component {
   constructor(props) {
     super(props);
     this.state = { hasError: false };
