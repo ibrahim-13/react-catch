@@ -32,7 +32,7 @@ export default class ErrorBoundary extends Component {
   render() {
     if (this.state.hasError) {
       console.log(this.props.fallback);
-      return this.props.fallback ? this.props.fallback : <React.Fragment></React.Fragment>;
+      return this.props.fallback ? this.props.fallback : <h1>Unknown Error !</h1>;
     }
 
     return this.props.children; 
