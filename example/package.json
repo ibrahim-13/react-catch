@@ -1,6 +1,6 @@
 {
-  "name": "react-catch-example",
-  "homepage": "https://ibrahim-13.github.io/react-catch",
+  "name": "react-catcher-example",
+  "homepage": "https://ibrahim-13.github.io/react-catcher",
   "version": "0.0.0",
   "license": "MIT",
   "private": true,
@@ -9,7 +9,7 @@
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-scripts": "^1.1.4",
-    "react-catch": "file:.."
+    "react-catcher": "file:.."
   },
   "scripts": {
     "start": "react-scripts start",

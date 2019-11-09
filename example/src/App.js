@@ -1,15 +1,12 @@
 import React, { Component } from 'react'
 
-import ExampleComponent from 'react-catch'
+import ExampleComponent from 'react-catcher'
 
 export default class App extends Component {
   render () {
     return (
       <div>
         <ExampleComponent text='Modern React component module' />
-        {(() => {
-          throw new Error('Throwing Error !');
-        })()}
       </div>
     )
   }
