@@ -1,7 +1,16 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom';
+import App from './App';
+import ReactCatcher from 'react-catcher';
 
-import './index.css'
-import App from './App'
-
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render((
+  <ReactCatcher
+    fallback={
+      <h1>
+        An Error has occured !!
+      </h1>
+    }
+  >
+    <App />
+  </ReactCatcher>
+), document.getElementById('root'))
