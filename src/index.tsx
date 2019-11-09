@@ -1,23 +1,40 @@
-/**
- * @class ExampleComponent
- */
-
 import * as React from 'react'
 
-import styles from './styles.css'
+export type ReactCatcherProps = {
+  fallback: JSX.Element;
+  errorHandler?: (error: Error, errorInfo: React.ErrorInfo) => void;
+}
 
-export type Props = { text: string }
+type ReactCatcherState = {
+  hasError: boolean;
+}
 
-export default class ExampleComponent extends React.Component<Props> {
+export default class ReactCatcher extends React.Component<ReactCatcherProps, ReactCatcherState> {
+  constructor(props: ReactCatcherProps) {
+    super(props);
+    this.state = {
+      hasError: false,
+    };
+  }
+
+  static getDerivedStateFromError() {
+    return {
+      hasError: true,
+    };
+  }
+
+  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+    if (this.props.errorHandler) {
+      this.props.errorHandler(error, errorInfo);
+    }
+  }
+
   render() {
-    const {
-      text
-    } = this.props
+    if (this.state.hasError) {
+      return this.props.fallback ?
+        this.props.fallback : <h1>Unknown Error !</h1>;
+    }
 
-    return (
-      <div className={styles.test}>
-        Example Component: {text}
-      </div>
-    )
+    return this.props.children; 
   }
 }
