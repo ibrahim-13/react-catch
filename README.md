@@ -1,8 +1,16 @@
 # react-catcher
 
-> React component for Error Boundary
+> React component for wrapping Error Boundary
 
 [![NPM](https://img.shields.io/npm/v/react-catcher.svg)](https://www.npmjs.com/package/react-catcher) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+
+## Description
+
+***React Catcher*** provides a component wrapper to catch error during render and prevent *White Screen*.
+This component provides the following advantages: 
+* Has a default **Fallback** to show if error occured.
+* User preferred **Fallback Component Object** can be passed to the component as `props`.
+* An error hander callback can be passed to the `props` to call, when an error is caught.
 
 ## Install
 
@@ -10,20 +18,25 @@
 npm install --save react-catcher
 ```
 
-## Usage
+## Usage (*Wrapping <App /> to catch any error occured*)
 
-```tsx
-import * as React from 'react'
+### Parameters:
+>***fallback*** - JSX Component (Must be a component/object, can not be a function)<br>
+>***errorHandler(error, errorInfo)*** - A callback to handle error
 
-import MyComponent from 'react-catcher'
+```jsx
+import React, { Component } from 'react'
 
-class Example extends React.Component {
-  render () {
-    return (
-      <MyComponent />
-    )
-  }
-}
+import ReactCatcher from 'react-catch';
+
+ReactDOM.render((
+  <ReactCatcher
+    fallback={<h1>An Error has occured !!</h1>}
+    errorHandler={(error, errorInfo) => /** Handle Error Here */}
+  >
+    <App />
+  </ReactCatcher>
+  ), document.getElementById('root'))
 ```
 
 ## License
